@@ -16,7 +16,7 @@
 
 package andreabresolin.kotlincoroutinesexamples.app.coroutines
 
-import kotlinx.coroutines.experimental.CoroutineScope
+import kotlinx.coroutines.CoroutineScope
 
 interface CoroutinesManager {
 

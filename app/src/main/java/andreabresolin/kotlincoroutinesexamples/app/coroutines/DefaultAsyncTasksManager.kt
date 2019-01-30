@@ -17,19 +17,18 @@
 package andreabresolin.kotlincoroutinesexamples.app.coroutines
 
 import android.support.annotation.CallSuper
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.CoroutineScope
-import kotlinx.coroutines.experimental.Deferred
-import kotlinx.coroutines.experimental.async
+import kotlinx.coroutines.*
 
 open class DefaultAsyncTasksManager : AsyncTasksManager {
 
     protected val deferredObjects: MutableList<Deferred<*>> = mutableListOf()
+    private val job = Job()
+    private val uiScope = CoroutineScope(Dispatchers.Default + job)
 
     @CallSuper
     @Synchronized
     override suspend fun <T> async(block: suspend CoroutineScope.() -> T): Deferred<T> {
-        val deferred: Deferred<T> = async(CommonPool) { block() }
+        val deferred: Deferred<T> = uiScope.async { block() }
         deferredObjects.add(deferred)
         deferred.invokeOnCompletion { deferredObjects.remove(deferred) }
         return deferred

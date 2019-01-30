@@ -16,8 +16,8 @@
 
 package andreabresolin.kotlincoroutinesexamples.app.coroutines
 
-import kotlinx.coroutines.experimental.CoroutineScope
-import kotlinx.coroutines.experimental.Deferred
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Deferred
 
 interface AsyncTasksManager {
 

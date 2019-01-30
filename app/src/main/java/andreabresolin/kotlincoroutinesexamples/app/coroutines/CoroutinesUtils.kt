@@ -16,8 +16,8 @@
 
 package andreabresolin.kotlincoroutinesexamples.app.coroutines
 
-import kotlinx.coroutines.experimental.CancellationException
-import kotlinx.coroutines.experimental.CoroutineScope
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineScope
 
 interface CoroutinesUtils {
     companion object {

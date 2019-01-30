@@ -141,7 +141,7 @@ class ForecastActivity : AppCompatActivity(), ForecastView {
     }
 
     override fun updateAllForecasts() {
-        daysForecastList.adapter.notifyDataSetChanged()
+        daysForecastList.adapter?.notifyDataSetChanged()
     }
 
     override fun displayLoadForecastsErrorWithRetry(

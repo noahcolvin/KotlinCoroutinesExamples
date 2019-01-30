@@ -20,18 +20,18 @@ import andreabresolin.kotlincoroutinesexamples.app.coroutines.CoroutinesUtils.Co
 import andreabresolin.kotlincoroutinesexamples.app.coroutines.CoroutinesUtils.Companion.tryCatchFinally
 import andreabresolin.kotlincoroutinesexamples.app.coroutines.CoroutinesUtils.Companion.tryFinally
 import android.support.annotation.CallSuper
-import kotlinx.coroutines.experimental.CoroutineScope
-import kotlinx.coroutines.experimental.Job
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.*
+
 
 open class DefaultCoroutinesManager : CoroutinesManager {
 
     protected val coroutinesJobs: MutableList<Job> = mutableListOf()
+    private val job = Job()
+    private val uiScope = CoroutineScope(Dispatchers.Main + job)
 
     @Synchronized
     override fun launchOnUI(block: suspend CoroutineScope.() -> Unit) {
-        val job: Job = launch(UI) { block() }
+        val job: Job = uiScope.launch { uiScope.async { block() } }
         coroutinesJobs.add(job)
         job.invokeOnCompletion { coroutinesJobs.remove(job) }
     }

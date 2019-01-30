@@ -98,11 +98,11 @@ class HomeActivity : AppCompatActivity(), HomeView {
     }
 
     override fun updateAllCities() {
-        citiesWeatherList.adapter.notifyDataSetChanged()
+        citiesWeatherList.adapter?.notifyDataSetChanged()
     }
 
     override fun updateCity(cityIndex: Int) {
-        citiesWeatherList.adapter.notifyItemChanged(cityIndex)
+        citiesWeatherList.adapter?.notifyItemChanged(cityIndex)
     }
 
     override fun displayAverageTemperature(temperature: Double) {

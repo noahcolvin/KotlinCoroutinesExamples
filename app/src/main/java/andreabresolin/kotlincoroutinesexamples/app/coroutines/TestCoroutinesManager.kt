@@ -19,8 +19,8 @@ package andreabresolin.kotlincoroutinesexamples.app.coroutines
 import andreabresolin.kotlincoroutinesexamples.app.coroutines.CoroutinesUtils.Companion.tryCatch
 import andreabresolin.kotlincoroutinesexamples.app.coroutines.CoroutinesUtils.Companion.tryCatchFinally
 import andreabresolin.kotlincoroutinesexamples.app.coroutines.CoroutinesUtils.Companion.tryFinally
-import kotlinx.coroutines.experimental.CoroutineScope
-import kotlinx.coroutines.experimental.runBlocking
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.runBlocking
 
 open class TestCoroutinesManager : CoroutinesManager {
 

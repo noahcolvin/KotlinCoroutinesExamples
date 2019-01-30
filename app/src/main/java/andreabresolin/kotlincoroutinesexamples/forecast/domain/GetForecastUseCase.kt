@@ -22,7 +22,7 @@ import andreabresolin.kotlincoroutinesexamples.app.model.DayForecast
 import andreabresolin.kotlincoroutinesexamples.app.network.model.ThreeHoursWeatherForecast
 import andreabresolin.kotlincoroutinesexamples.app.network.model.WeatherForecast
 import andreabresolin.kotlincoroutinesexamples.app.repository.WeatherRepository
-import kotlinx.coroutines.experimental.delay
+import kotlinx.coroutines.delay
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
